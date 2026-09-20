@@ -1,0 +1,9 @@
+CASAFOTOS 1.1 | CORREÇÃO DO INSTALADOR
+
+A criação do VHD falhava quando o script enviado ao DiskPart utilizava uma codificação inadequada. O instalador 1.1 escreve os comandos em ASCII com finais de linha CRLF e guarda um relatório da operação.
+
+A instalação verifica se o ficheiro VHD já existe e recusa formatá-lo automaticamente. O arranque posterior monta o disco configurado sem o recriar.
+
+No dia 20 de setembro de 2026, a instalação inicial num PC Windows criou, montou e formatou um VHD novo; o servidor respondeu ao endpoint HTTPS local. O arranque após reinício e a remoção de fotografias no Android continuam por validar.
+
+Não apagues um VHD para repetir a instalação. Consulta VERIFICAR_PC.cmd e a documentação antes de qualquer alteração.
