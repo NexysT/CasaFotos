@@ -1,0 +1,39 @@
+# Credenciais, certificados e identidade da instalação
+assinatura/
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+*.key
+password.txt
+.env
+.env.*
+!.env.example
+
+# Dados pessoais, índices e discos virtuais
+*.vhd
+*.vhdx
+*.sqlite3
+*.sqlite3-*
+*.db
+*.db-*
+originals/
+thumbs/
+incoming/
+CasaFotos-Arquivo/
+
+# Build e dependências locais
+CasaFotos.apk
+*.apk
+servidor/python-windows.zip
+servidor/wheels/
+android/build-manual/
+android/.gradle/
+android/app/build/
+**/__pycache__/
+*.pyc
+.venv/
+.vscode/
+.idea/
+*.log
