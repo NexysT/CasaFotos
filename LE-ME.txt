@@ -1,0 +1,21 @@
+CASAFOTOS | GUIA RÁPIDO
+
+Este repositório disponibiliza o código-fonte de um protótipo Android + Windows.
+
+ANTES DE COMEÇAR
+1. Lê README.md e SECURITY.md.
+2. Mantém fotografias importantes em mais do que um disco.
+3. Não abras a porta 47831 para a Internet.
+4. Usa fotografias de teste para validar a importação e a remoção.
+
+INSTALAÇÃO
+O script INSTALAR_PC.cmd foi preparado para uma distribuição offline que inclui Python 3.12 embeddable e wheels Windows na pasta servidor. Esses componentes externos NÃO estão presentes neste repositório. Consulta README.md para os preparar.
+
+Se já utilizas CasaFotos num PC, não repitas a criação do disco de 30 GB. Executa VERIFICAR_PC.cmd antes de alterar uma instalação existente.
+
+ANDROID
+O botão Adicionar fotos abre o seletor de documentos. A integração direta com a Galeria Samsung e o menu Partilhar ainda não foi concluída.
+
+O servidor só está disponível quando o PC está ligado e acordado. Após a importação, a escolha de remover os originais depende da autorização do sistema Android. Não apagues originais importantes sem confirmares também uma cópia de segurança independente.
+
+Projeto pessoal de Carlos Pereira | github.com/NexysT
