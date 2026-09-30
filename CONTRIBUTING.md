@@ -8,7 +8,7 @@ Abre uma issue com a versão do Android, a versão do Windows, os passos para re
 
 ## Propor melhorias
 
-Explica o problema que pretendes resolver, os ficheiros afetados e os testes que executaste. Mantém as mensagens dirigidas ao utilizador em português europeu, com nomes e comentários claros. Não apresentes funcionalidades como validadas sem um teste reproduzível.
+Explica o problema que pretendes resolver, os ficheiros afetados e os testes que executaste. Mantém as mensagens dirigidas ao utilizador em PT-PT, com nomes e comentários claros. Não apresentes funcionalidades como validadas sem um teste reproduzível.
 
 Antes de submeter alterações, executa os testes disponíveis:
 
