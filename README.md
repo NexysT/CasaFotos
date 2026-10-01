@@ -1,64 +1,28 @@
-<div align="center">
+<picture>
+  <source media="(max-width: 600px)" srcset="./assets/cover-mobile.svg">
+  <img src="./assets/cover.svg" alt="CasaFotos — NexysT. Android, backend e armazenamento Windows." width="100%">
+</picture>
 
-<img src="./assets/cover.svg" alt="CasaFotos. Biblioteca de fotografias Android com armazenamento no teu PC." width="100%">
+[Português](README.md) · [English](README.en.md)
 
-<br>
-
-<img src="https://img.shields.io/badge/ANDROID-JAVA-6DD5AD?style=flat-square&labelColor=122820" alt="Android Java">
-<img src="https://img.shields.io/badge/SERVIDOR-PYTHON-91c5f9?style=flat-square&labelColor=122820" alt="Servidor Python">
-<img src="https://img.shields.io/badge/ARMAZENAMENTO-WINDOWS-F2CA91?style=flat-square&labelColor=122820" alt="Armazenamento Windows">
-<img src="https://img.shields.io/badge/ESTADO-PROTÓTIPO-E5AA72?style=flat-square&labelColor=122820" alt="Estado protótipo">
-
-<br><br>
+# CasaFotos
 
 **As fotografias no teu computador. A biblioteca no telemóvel.**
 
-[Explorar funcionalidades](#funcionalidades) · [Como funciona](#como-funciona) · [Começar](#começar) · [Segurança](#segurança-e-privacidade)
+CasaFotos nasceu de um problema pessoal: guardar os originais das fotografias num computador de casa e continuar a consultá-los no Android. O projeto liga uma interface móvel em Java, um backend Python, um índice SQLite e armazenamento local no Windows.
 
-</div>
-
-<br>
-
-## Uma biblioteca pessoal, em casa
-
-Criei o **CasaFotos** a partir de uma ideia simples: permitir que alguém mantenha os originais das suas fotografias num computador de casa e continue a consultá-los numa aplicação Android. Queria experimentar todo o percurso, desde a escolha das imagens no telemóvel até ao armazenamento e à recuperação dos ficheiros.
-
-O resultado é um protótipo composto por um servidor Python para Windows e uma aplicação Android em Java. O servidor guarda a biblioteca, os ficheiros e as miniaturas. O telemóvel funciona como interface para escolher, enviar e consultar imagens através da rede local.
-
-<table>
-<tr>
-<td width="50%" valign="top">
-<h3>01 · No telemóvel</h3>
-<p>Escolhe fotografias ou vídeos, acompanha a importação e consulta a biblioteca organizada em miniaturas.</p>
-</td>
-<td width="50%" valign="top">
-<h3>02 · No computador</h3>
-<p>O servidor guarda os originais, gere o índice da biblioteca e pode utilizar um disco virtual com cerca de 30 GB.</p>
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-<h3>03 · Com confirmação</h3>
-<p>Depois da verificação da cópia, a app pergunta se queres manter os originais no Android ou solicitar a remoção.</p>
-</td>
-<td width="50%" valign="top">
-<h3>04 · Sem conta na cloud</h3>
-<p>O protótipo não precisa de uma conta de um fornecedor externo de fotografias para apresentar a biblioteca em casa.</p>
-</td>
-</tr>
-</table>
+A aplicação permite escolher, enviar e consultar fotografias e vídeos na rede doméstica. O servidor guarda os ficheiros e as miniaturas, sem exigir uma conta num fornecedor externo de fotografias. É um protótipo de aplicação integrada, com instalação e diagnóstico no PC.
 
 > [!IMPORTANT]
 > **Projeto experimental.** O instalador Windows criou e formatou um novo VHD num teste real e o servidor respondeu localmente por HTTPS. Ainda falta validar ponta a ponta a transferência e a remoção no Android. Não guardes a única cópia de fotografias importantes nesta versão. Experimenta com ficheiros de teste e mantém um backup separado.
 
-<br>
 
 ## Funcionalidades
 
 | Componente | O que está no código | Estado |
 | :--- | :--- | :--- |
 | Android | Galeria com miniaturas, pesquisa, álbuns e visualização | Implementado no código |
-| Importação | Escolha de fotografias e vídeos pelo seletor de **documentos** Android | Implementado no código |
+| Importação | Escolha de fotografias e vídeos pelo seletor de **documentos** Android, com acompanhamento de progresso | Implementado no código |
 | Armazenamento | Originais, miniaturas, metadados e quota de espaço | Testes do servidor disponíveis |
 | Integridade | Verificação SHA-256 do ficheiro recebido | Testes do servidor disponíveis |
 | Remoção opcional | Pergunta à pessoa e pede autorização ao Android quando suportado | Por validar num dispositivo real |
@@ -67,12 +31,11 @@ O resultado é um protótipo composto por um servidor Python para Windows e uma 
 
 **O que ainda não faz:** abrir diretamente a Galeria Samsung nem aparecer como destino no menu Partilhar do telemóvel. Ao tocar em **Adicionar fotos**, a versão atual abre o seletor de documentos. A experiência de galeria fotográfica está no plano de evolução, não na lista de funcionalidades concluídas.
 
-<br>
 
 ## Como funciona
 
 ```mermaid
-flowchart LR
+flowchart TD
     A["Android · CasaFotos"] -->|"HTTPS / Wi-Fi de casa"| B["Servidor Python · Windows"]
     B --> C[("SQLite · Índice")]
     B --> D["Originais e miniaturas"]
@@ -83,7 +46,6 @@ Ao importar imagens, a aplicação envia os originais para o servidor. Depois de
 
 O computador precisa de estar ligado e acordado para receber novas imagens e disponibilizar os originais que já não estão no telemóvel. **O disco virtual de 30 GB não é um backup**: continua a depender do mesmo SSD.
 
-<br>
 
 ## Começar
 
@@ -133,7 +95,6 @@ python -m unittest discover -s testes -v
 
 Os testes usam ficheiros artificiais e diretórios temporários. Consulta [VALIDACAO.md](VALIDACAO.md) para saber o que foi observado e o que falta confirmar.
 
-<br>
 
 ## Estrutura do projeto
 
@@ -144,12 +105,12 @@ CasaFotos/
 ├── testes/         Testes do servidor e verificações estáticas
 ├── assets/         Identidade visual deste repositório
 ├── README.md       Introdução e instruções
+├── README.en.md    Documentação equivalente em inglês
 ├── SECURITY.md     Segurança e limitações
 ├── CONTRIBUTING.md Contribuições
 └── CHANGELOG.md   Evolução do projeto
 ```
 
-<br>
 
 ## Segurança e privacidade
 
@@ -159,7 +120,6 @@ O repositório não publica fotografias, bases de dados, ficheiros VHD, password
 
 Consulta [SECURITY.md](SECURITY.md) antes de testar com dados pessoais.
 
-<br>
 
 ## Próximos passos
 
@@ -170,7 +130,6 @@ Consulta [SECURITY.md](SECURITY.md) antes de testar com dados pessoais.
 - [ ] Backup e restauro para um segundo disco.
 - [ ] Instalação e atualização sem risco para bibliotecas existentes.
 
-<br>
 
 <details>
 <summary><strong>Perguntas frequentes</strong></summary>
@@ -185,9 +144,6 @@ Consulta [SECURITY.md](SECURITY.md) antes de testar com dados pessoais.
 
 </details>
 
-<br>
 
-<div align="center">
-  <sub>Projeto pessoal de Carlos Pereira · <a href="https://github.com/NexysT">@NexysT</a> · Portugal</sub><br>
-  <sub>CasaFotos não está associado à Google nem ao serviço Google Fotos.</sub>
-</div>
+CasaFotos é um projeto pessoal de [NexysT](https://github.com/NexysT) e não está associado à Google nem ao serviço Google Fotos.
+
