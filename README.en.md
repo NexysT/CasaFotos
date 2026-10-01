@@ -1,6 +1,6 @@
 <picture>
   <source media="(max-width: 600px)" srcset="./assets/cover-mobile.svg">
-  <img src="./assets/cover.svg" alt="CasaFotos — NexysT. Android, backend e armazenamento Windows." width="100%">
+  <img src="./assets/cover.svg" alt="CasaFotos — NexysT. Android, backend and Windows storage." width="100%">
 </picture>
 
 [Português](README.md) · [English](README.en.md)
